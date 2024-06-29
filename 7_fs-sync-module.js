@@ -7,8 +7,8 @@ const fs = require("fs");
 
 log("start");
 
-const firstFile = fs.readFileSync("js/nodeJs/freecodecamp/content/first.txt","utf8");
-const secondFile = fs.readFileSync("js/nodeJs/freecodecamp/content/second.txt","utf8");
+const firstFile = fs.readFileSync("./content/first.txt","utf8");
+const secondFile = fs.readFileSync("./content/second.txt","utf8");
 
 fs.writeFileSync(
   "js/nodeJs/freecodecamp/content/result.txt",

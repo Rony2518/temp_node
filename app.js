@@ -1,19 +1,36 @@
-const http = require('http');
+const { readFile, writeFile } = require("fs").promises;
+// const util = require("util");
+// const readFilePromise = util.promisify(readFile);
+// const writeFilePromise = util.promisify(writeFile);
 
-const port = 5000;
+const start = async () => {
+  try {
+    const first = await readFile("./content/first.txt", "utf8");
+    const second = await readFile("./content/second.txt", "utf8");
+    await writeFile(
+      "./content/result-async.txt",
+      `Here is the result: ${first} \n\n ${second}`,
+    //   { flag: "a" }
+    );
+  } catch (e) {
+    console.error(e);
+  }
+};
 
-const server = http.createServer((req,res)=>{
-    // console.log("resquest");
-    res.writeHead(200,{'Content-Type':'text/html'});
-    if(req.url === "/"){
-        res.end("<h1>Hello World</h1><a href='/about'>About</a>");
-    } else if(req.url === '/about'){
-        res.end("<h1>Hello About</h1> <a href='/'>Home</a>");
-    } else {
-        res.end("<h1>404</h1> <a href='/'>Home</a>");
-    }
-})
+start();
 
-server.listen(port, ()=>{
-    console.log(`http://localhost:${port}`);
-})
+// const getText = (path) =>{
+//     return new Promise((resolve, reject) =>{
+//         readFile(path, 'utf8', (err, data) =>{
+//             if(err){
+//                 reject(err);
+//             }else{
+//                 resolve(data);
+//             }
+//         })
+//     })
+// }
+
+// getText('./content/first.txt')
+//     .then((data)=>console.log(data))
+//     .catch((err)=>console.log(err))

@@ -1,11 +1,11 @@
-First File
+Here is the result: First File
 
 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
 Laudantium tenetur explicabo obcaecati hic illum repudiandae
-reiciendis, deleniti rerum ducimus cum!,
+reiciendis, deleniti rerum ducimus cum! 
 
-Second File 
+ Second File
 
-Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-Doloribus amet deserunt molestias voluptatum vero repudiandae
-sapiente suscipit optio corporis officiis.
+Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+Laudantium tenetur explicabo obcaecati hic illum repudiandae
+reiciendis, deleniti rerum ducimus cum!

@@ -1,46 +1,36 @@
-console.log("hello Ronak");
+const { readFile, writeFile } = require("fs").promises;
+// const util = require("util");
+// const readFilePromise = util.promisify(readFile);
+// const writeFilePromise = util.promisify(writeFile);
 
-console.time();
-
-for (let i = 0; i < 10000000; i++) {
-  const heading = document.querySelector("h3");
-  heading.textContent = "change";
-}
-
-console.timeEnd();
-console.log("End Task");
-
-console.log("First Task");
-
-setTimeout(() => {
-  console.log("Second Task");
-}, 0);
-
-console.log("Third Task");
-
-const { readFile } = require("fs");
-
-console.log("first Task");
-
-readFile("./content/first.txt", "utf8", (err, result) => {
-  if (err) {
-    console.log(err);
-    return;
+const start = async () => {
+  try {
+    const first = await readFile("./content/first.txt", "utf8");
+    const second = await readFile("./content/second.txt", "utf8");
+    await writeFile(
+      "./content/result-async.txt",
+      `Here is the result: ${first} \n\n ${second}`,
+    //   { flag: "a" }
+    );
+  } catch (e) {
+    console.error(e);
   }
-  const first = result;
-  console.log("First Task Completed");
-});
+};
 
-console.log("next task Start");
+start();
 
-let i = 0;
-const t = setInterval(() => {
-  console.time();
-  console.log("Hello" + " " + i++ + " " + "Times");
-  console.timeEnd();
-  if (i == 10) {
-    clearInterval(t);
-  }
-}, 2000);
+// const getText = (path) =>{
+//     return new Promise((resolve, reject) =>{
+//         readFile(path, 'utf8', (err, data) =>{
+//             if(err){
+//                 reject(err);
+//             }else{
+//                 resolve(data);
+//             }
+//         })
+//     })
+// }
 
-console.log("Next Task");
+// getText('./content/first.txt')
+//     .then((data)=>console.log(data))
+//     .catch((err)=>console.log(err))
